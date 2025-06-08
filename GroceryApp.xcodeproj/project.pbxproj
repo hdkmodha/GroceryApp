@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C68444702DF5959800FF0341 /* GroceryAppSharedDTO in Frameworks */ = {isa = PBXBuildFile; productRef = C684446F2DF5959800FF0341 /* GroceryAppSharedDTO */; };
+		C68444962DF59AA300FF0341 /* GroceryAppSharedDTO in Frameworks */ = {isa = PBXBuildFile; productRef = C68444952DF59AA300FF0341 /* GroceryAppSharedDTO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C68444702DF5959800FF0341 /* GroceryAppSharedDTO in Frameworks */,
+				C68444962DF59AA300FF0341 /* GroceryAppSharedDTO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 			);
 			name = GroceryApp;
 			packageProductDependencies = (
-				C684446F2DF5959800FF0341 /* GroceryAppSharedDTO */,
+				C68444952DF59AA300FF0341 /* GroceryAppSharedDTO */,
 			);
 			productName = GroceryApp;
 			productReference = C634E6B82DF1C44A00C29662 /* GroceryApp.app */;
@@ -101,7 +101,7 @@
 			mainGroup = C634E6AF2DF1C44A00C29662;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C684446E2DF5959800FF0341 /* XCRemoteSwiftPackageReference "GroceryAppSharedDTO" */,
+				C68444942DF59AA300FF0341 /* XCRemoteSwiftPackageReference "GroceryAppSharedDTO" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C634E6B92DF1C44A00C29662 /* Products */;
@@ -343,7 +343,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C684446E2DF5959800FF0341 /* XCRemoteSwiftPackageReference "GroceryAppSharedDTO" */ = {
+		C68444942DF59AA300FF0341 /* XCRemoteSwiftPackageReference "GroceryAppSharedDTO" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hdkmodha/GroceryAppSharedDTO.git";
 			requirement = {
@@ -354,9 +354,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C684446F2DF5959800FF0341 /* GroceryAppSharedDTO */ = {
+		C68444952DF59AA300FF0341 /* GroceryAppSharedDTO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C684446E2DF5959800FF0341 /* XCRemoteSwiftPackageReference "GroceryAppSharedDTO" */;
+			package = C68444942DF59AA300FF0341 /* XCRemoteSwiftPackageReference "GroceryAppSharedDTO" */;
 			productName = GroceryAppSharedDTO;
 		};
 /* End XCSwiftPackageProductDependency section */
