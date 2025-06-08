@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct GroceryAppApp: App {
+    
+    @StateObject var groceryModel = GroceryModels()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginScreen()
+                .environmentObject(groceryModel)
         }
     }
 }
