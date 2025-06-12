@@ -16,5 +16,8 @@ enum Constants {
     enum endPoints {
         static let register = URL(string: "\(baseURL)/register")!
         static let login = URL(string: "\(baseURL)/login")!
+        static func saveGroceryCategory(withId userId: String) -> URL {
+            return URL(string: "\(baseURL)/users/\(userId)/grocery-categories")!
+        }
     }
 }
