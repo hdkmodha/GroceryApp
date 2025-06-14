@@ -14,6 +14,8 @@ struct GroceryCategoryListScreen: View {
     @EnvironmentObject private var model: GroceryModels
     @Environment(NavigationViewModel.self) private var viewModel
     
+    @State var presentSheet: Bool = false
+    
     private func fetchGroceryCategories() async {
         do {
             try await model.getGroceryCategories()
@@ -56,10 +58,22 @@ struct GroceryCategoryListScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    self.viewModel.push(.addCategory)
+                    self.presentSheet = true
                 } label: {
                     Text("Add New Category")
                 }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    
+                } label: {
+                    Text("Logout")
+                }
+            }
+        }
+        .sheet(isPresented: self.$presentSheet) {
+            NavigationStack {
+                AddGroceryCategoryScreen()
             }
         }
     }
