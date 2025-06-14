@@ -8,6 +8,7 @@
 import Foundation
 import GroceryAppSharedDTO
 
+@MainActor
 class GroceryModels: ObservableObject {
     
     @Published var groceryCategories: [GroceryCategoryResponseDTO] = []
@@ -31,9 +32,8 @@ class GroceryModels: ObservableObject {
         print(response)
         
         if let token = response.token {
-            UserDefaults.standard.set(token, forKey: Constants.token)
-            UserDefaults.standard.set(response.userId.uuidString, forKey: Constants.userId)
-            UserDefaults.standard.synchronize()
+            UserDefaults.standard.userId = response.userId
+            UserDefaults.standard.token = response.token
             return true
         } else {
             throw NetworkError.serverError("Unable to login.")
@@ -68,5 +68,18 @@ class GroceryModels: ObservableObject {
         
         self.groceryCategories.append(result)
         
+    }
+    
+    func deleteGroceryCategory(withId id: UUID) async throws {
+        
+        guard let userId = UserDefaults.standard.userId else { return }
+        let url = Constants.endPoints.deleteGroceryCategory(withUserId: userId, andGorceryId: id)
+        let resource = Resource(url: url, method: .delete, modelType: GroceryCategoryResponseDTO.self)
+        let result = try await httpClient.load(resource: resource)
+        
+        self.groceryCategories = groceryCategories.filter({$0.id != result.id})
+        
+        
+        print(result)
     }
 }

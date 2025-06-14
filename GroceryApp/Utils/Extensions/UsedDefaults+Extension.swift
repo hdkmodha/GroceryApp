@@ -17,6 +17,18 @@ extension UserDefaults {
         }
         set {
             set(newValue?.uuidString, forKey: Constants.userId)
+            synchronize()
+        }
+    }
+    
+    var token: String? {
+        get {
+            let value = string(forKey: Constants.token)
+            return value
+        }
+        set {
+            setValue(newValue, forKey: Constants.token)
+            synchronize()
         }
     }
 }

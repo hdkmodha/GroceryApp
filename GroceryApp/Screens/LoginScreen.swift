@@ -9,11 +9,14 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    @EnvironmentObject var groceryModel: GroceryModels
+    @Environment(NavigationViewModel.self) private var viewModel
+    
+    var groceryModel: GroceryModels
     
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var errorMesage: String = ""
+    @State private var isLoggedIn: Bool = false
     
     var isFormValid: Bool {
         !username.isEmptyOrWhiteSpace && !password.isEmptyOrWhiteSpace && (password.count >= 6 && password.count <= 10)
@@ -21,8 +24,10 @@ struct LoginScreen: View {
     
     func login() async {
         do {
-            let isLoggedIn = try await groceryModel.login(username: username, password: password)
-            print(isLoggedIn)
+            self.isLoggedIn = try await groceryModel.login(username: username, password: password)
+            if isLoggedIn {
+                viewModel.push(.categoryList)
+            }
         } catch {
             errorMesage = error.localizedDescription
         }
@@ -51,7 +56,7 @@ struct LoginScreen: View {
     }
 }
 
-#Preview {
-    LoginScreen()
-        .environmentObject(GroceryModels())
-}
+//#Preview {
+//    LoginScreen()
+//        .environmentObject(GroceryModels())
+//}

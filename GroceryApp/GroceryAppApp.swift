@@ -14,8 +14,7 @@ struct GroceryAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginScreen()
-                .environmentObject(groceryModel)
+            NavigationView(model: GroceryModels())
         }
     }
 }

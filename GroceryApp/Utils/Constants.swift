@@ -19,5 +19,13 @@ enum Constants {
         static func saveGroceryCategory(withId userId: String) -> URL {
             return URL(string: "\(baseURL)/users/\(userId)/grocery-categories")!
         }
+        
+        static func getGroceryCategories(withId userId: String) -> URL {
+            return URL(string: "\(baseURL)/users/\(userId)/grocery-categories")!
+        }
+        
+        static func deleteGroceryCategory(withUserId userId: UUID, andGorceryId groceryId: UUID) -> URL {
+            return URL(string: "\(baseURL)/users/\(userId)/grocery-categories/\(groceryId)")!
+        }
     }
 }

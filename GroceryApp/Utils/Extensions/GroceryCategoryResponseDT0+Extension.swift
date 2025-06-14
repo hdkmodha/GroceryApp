@@ -8,5 +8,6 @@
 import Foundation
 import GroceryAppSharedDTO
 
-extension GroceryCategoryResponseDTO: Identifiable {
+extension GroceryCategoryResponseDTO: Identifiable, @unchecked Sendable {
 }
+
