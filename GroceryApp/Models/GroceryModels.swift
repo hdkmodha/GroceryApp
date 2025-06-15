@@ -82,4 +82,9 @@ class GroceryModels: ObservableObject {
         
         print(result)
     }
+    
+    func logout() {
+        UserDefaults.standard.userId = nil
+        UserDefaults.standard.token = nil
+    }
 }

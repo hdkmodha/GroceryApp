@@ -16,6 +16,8 @@ struct RegistrationScreen: View {
     @State private var password: String = ""
     @State private var errorMesage: String = ""
     
+    @Environment(\.dismiss) var dismiss
+    
     var isFormValid: Bool {
         !username.isEmptyOrWhiteSpace && !password.isEmptyOrWhiteSpace && (password.count >= 6 && password.count <= 10)
     }
@@ -25,6 +27,7 @@ struct RegistrationScreen: View {
             
             let result = try await groceryModel.register(username: self.username, password: self.password)
             print(result)
+            dismiss()
             
             if !result.error {
                 
@@ -51,7 +54,7 @@ struct RegistrationScreen: View {
                 .disabled(!isFormValid)
                 Spacer()
                 Button("Login") {
-                    
+                    dismiss()
                 }
                 .buttonStyle(.borderless)
             }

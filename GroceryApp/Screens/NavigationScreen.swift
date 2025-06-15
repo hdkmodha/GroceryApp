@@ -16,6 +16,7 @@ struct NavigationView: View {
     
     init(model: GroceryModels) {
         self.model = model
+        
     }
     
     var body: some View {

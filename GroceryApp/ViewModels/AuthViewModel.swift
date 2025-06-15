@@ -39,4 +39,8 @@ class NavigationViewModel {
     func popToRoot() {
         self.navigationPath.removeLast(navigationPath.count)
     }
+    
+    func logout() {
+        self.navigationPath = NavigationPath()
+    }
 }

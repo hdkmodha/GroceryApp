@@ -65,7 +65,8 @@ struct GroceryCategoryListScreen: View {
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    
+                    self.model.logout()
+                    self.viewModel.logout()
                 } label: {
                     Text("Logout")
                 }

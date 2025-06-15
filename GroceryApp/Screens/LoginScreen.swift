@@ -17,6 +17,8 @@ struct LoginScreen: View {
     @State private var password: String = ""
     @State private var errorMesage: String = ""
     @State private var isLoggedIn: Bool = false
+    @State private var isPresented: Bool = false
+    
     
     var isFormValid: Bool {
         !username.isEmptyOrWhiteSpace && !password.isEmptyOrWhiteSpace && (password.count >= 6 && password.count <= 10)
@@ -51,6 +53,23 @@ struct LoginScreen: View {
             if !errorMesage.isEmpty {
                 Text(errorMesage)
                     .foregroundStyle(.red)
+            }
+        }
+        .navigationTitle("Login")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    self.isPresented = true
+                } label: {
+                    Text("Register")
+                }
+            }
+        }
+        .sheet(isPresented: $isPresented) {
+            NavigationStack {
+                RegistrationScreen()
+                    .environmentObject(self.groceryModel)
             }
         }
     }
