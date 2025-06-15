@@ -34,7 +34,7 @@ struct AddGroceryItemScreen: View {
         
         let requestItemDTO = GroceryItemRequestDTO(title: self.title, price: price, quantity: quantity)
         do {
-            let result = try await model.saveGroceryItem(withId: groceryCategoryResponseDTO.id, andRequestDTO: requestItemDTO)
+             try await model.saveGroceryItem(withId: groceryCategoryResponseDTO.id, andRequestDTO: requestItemDTO)
             dismiss()
             
         } catch {

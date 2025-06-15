@@ -16,8 +16,12 @@ struct GroceryDetailScreen: View {
     
     var body: some View {
         VStack {
-            List(1...10, id: \.self) { index in
-                Text("GroceryItem \(index)")
+            List(model.groceryItems, id: \.id) { groceryItem in
+                HStack {
+                    Text(groceryItem.title)
+                    Spacer()
+                    Text("Quantity: \(groceryItem.quantity)")
+                }
             }
             .navigationTitle(groceryCategoryDTO.title)
             .toolbar {
