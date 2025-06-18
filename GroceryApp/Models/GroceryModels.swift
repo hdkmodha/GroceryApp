@@ -13,6 +13,10 @@ class GroceryModels: ObservableObject {
     
     @Published var groceryCategories: [GroceryCategoryResponseDTO] = []
     
+    @Published var groceryItems:[GroceryItemResponseDTO] = []
+    
+    @Published var groceryCategory: GroceryCategoryResponseDTO?
+    
     let httpClient = HTTPClient()
     
     func register(username: String, password: String) async throws -> RegisterResponseDTO {
@@ -81,6 +85,21 @@ class GroceryModels: ObservableObject {
         
         
         print(result)
+    }
+    
+    func saveGroceryItem(withId categoryId: UUID, andRequestDTO groceryItemRequestDTO: GroceryItemRequestDTO) async throws {
+        
+        guard let userId = UserDefaults.standard.userId else {
+            return 
+        }
+        
+        let url = Constants.endPoints.saveGroceryItem(withId: categoryId, andUserId: userId)
+        
+        let resource = try Resource(url: url, method: .post(data: JSONEncoder().encode(groceryItemRequestDTO)), modelType: GroceryItemResponseDTO.self)
+        
+        let result = try await httpClient.load(resource: resource)
+        self.groceryItems.append(result)
+            
     }
     
     func logout() {

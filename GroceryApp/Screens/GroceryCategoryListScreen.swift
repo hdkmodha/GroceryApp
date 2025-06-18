@@ -41,12 +41,18 @@ struct GroceryCategoryListScreen: View {
     var body: some View {
         List {
             ForEach(model.groceryCategories) { groceryCategory in
-                HStack {
-                    Circle()
-                        .fill(Color(hex: groceryCategory.colorCode, alpha: 1.0))
-                        .frame(width: 25, height: 25)
-                    Text(groceryCategory.title)
+                NavigationLink {
+                    GroceryDetailScreen(groceryCategoryDTO: groceryCategory)
+                        .environmentObject(self.model)
+                } label: {
+                    HStack {
+                        Circle()
+                            .fill(Color(hex: groceryCategory.colorCode, alpha: 1.0))
+                            .frame(width: 25, height: 25)
+                        Text(groceryCategory.title)
+                    }
                 }
+
             }
             .onDelete(perform: deleteGroceryCategory)
         }
