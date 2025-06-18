@@ -1,0 +1,33 @@
+name: iOS CI - Build & Test
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  ios-build-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Install Bundler and Fastlane
+        run: |
+          gem install bundler
+          bundle init || true
+          echo 'gem "fastlane"' >> Gemfile
+          bundle install
+
+      - name: Run Tests
+        run: bundle exec fastlane test
+
+      - name: Build App
+        run: bundle exec fastlane build
