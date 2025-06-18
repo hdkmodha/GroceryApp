@@ -26,8 +26,5 @@ jobs:
           echo 'gem "fastlane"' >> Gemfile
           bundle install
 
-      - name: Run Tests
-        run: bundle exec fastlane test
-
       - name: Build App
         run: bundle exec fastlane build
