@@ -9,6 +9,8 @@ on:
 jobs:
   ios-build-test:
     runs-on: macos-latest
+    env:
+      FASTLANE_DISABLE_PROMPT: true
 
     steps:
       - name: Checkout code
