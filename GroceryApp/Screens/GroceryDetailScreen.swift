@@ -14,13 +14,25 @@ struct GroceryDetailScreen: View {
     var groceryCategoryDTO: GroceryCategoryResponseDTO
     @EnvironmentObject private var model: GroceryModels
     
+    func fetchGroceryItems() async {
+        
+        do {
+            try await model.getGroceryItems(forCategoryWithId: groceryCategoryDTO.id)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     var body: some View {
         VStack {
             List(model.groceryItems, id: \.id) { groceryItem in
                 HStack {
                     Text(groceryItem.title)
                     Spacer()
-                    Text("Quantity: \(groceryItem.quantity)")
+                    HStack {
+                        Text("Quantity: \(groceryItem.quantity)")
+                        Text("Price: \(groceryItem.price)")
+                    }
                 }
             }
             .navigationTitle(groceryCategoryDTO.title)
@@ -38,6 +50,9 @@ struct GroceryDetailScreen: View {
                 NavigationStack {
                     AddGroceryItemScreen(groceryCategoryResponseDTO: groceryCategory)
                 }
+            }
+            .task {
+                await fetchGroceryItems()
             }
         }
     }

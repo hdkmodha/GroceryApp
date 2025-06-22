@@ -102,6 +102,20 @@ class GroceryModels: ObservableObject {
             
     }
     
+    func getGroceryItems(forCategoryWithId id: UUID) async throws {
+        
+        guard let userId = UserDefaults.standard.userId else { return
+        }
+        
+        let url = Constants.endPoints.getGroceryItems(withId: id, andUserId: userId)
+        
+        let resource = Resource(url: url, modelType: [GroceryItemResponseDTO].self)
+        
+        self.groceryItems.removeAll()
+        
+        self.groceryItems = try await httpClient.load(resource: resource)
+    }
+    
     func logout() {
         UserDefaults.standard.userId = nil
         UserDefaults.standard.token = nil
