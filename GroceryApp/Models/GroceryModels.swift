@@ -116,6 +116,21 @@ class GroceryModels: ObservableObject {
         self.groceryItems = try await httpClient.load(resource: resource)
     }
     
+    func deleteGroceryItems(withCategoryId categoryId: UUID, andItem groceryItem: GroceryItemResponseDTO) async throws {
+        
+        guard let userId = UserDefaults.standard.userId else { return }
+        let url = Constants.endPoints.deleteGroceryItems(withId: categoryId, andUserId: userId, andItemId: groceryItem.id)
+        
+        let reousce = Resource(url: url, method: .delete, modelType: GroceryItemResponseDTO.self)
+        let result = try await httpClient.load(resource: reousce)
+        
+        if let index = self.groceryItems.firstIndex(of: groceryItem) {
+            self.groceryItems.remove(at: index)
+        }
+        
+        
+    }
+    
     func logout() {
         UserDefaults.standard.userId = nil
         UserDefaults.standard.token = nil

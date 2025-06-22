@@ -23,17 +23,36 @@ struct GroceryDetailScreen: View {
         }
     }
     
+    private func deleteGroceryItem(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let groceryItem = model.groceryItems[index]
+            
+            Task {
+                do {
+                    try await model.deleteGroceryItems(withCategoryId: self.groceryCategoryDTO.id, andItem: groceryItem)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+            
+        
+    }
+    
     var body: some View {
         VStack {
-            List(model.groceryItems, id: \.id) { groceryItem in
-                HStack {
-                    Text(groceryItem.title)
-                    Spacer()
+            List {
+                ForEach(self.model.groceryItems, id: \.id) { groceryItem in
                     HStack {
-                        Text("Quantity: \(groceryItem.quantity)")
-                        Text("Price: \(groceryItem.price)")
+                        Text(groceryItem.title)
+                        Spacer()
+                        HStack {
+                            Text("Quantity: \(groceryItem.quantity)")
+                            Text("Price: \(groceryItem.price)")
+                        }
                     }
                 }
+                .onDelete(perform: self.deleteGroceryItem)
             }
             .navigationTitle(groceryCategoryDTO.title)
             .toolbar {
@@ -54,6 +73,7 @@ struct GroceryDetailScreen: View {
             .task {
                 await fetchGroceryItems()
             }
+            
         }
     }
 }
