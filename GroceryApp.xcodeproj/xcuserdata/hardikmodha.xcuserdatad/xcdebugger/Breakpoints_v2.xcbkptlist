@@ -18,6 +18,64 @@
             endingLineNumber = "28"
             landmarkName = "register()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B4006906-C1E0-4D31-8164-2A325D2EA63E - 3a2f850d36961dfb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for GroceryApp.RegistrationScreen.register() async -&gt; ()"
+                  moduleName = "GroceryApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Seagate%20Portable%20Drive/VporStudy/GroceryApp/GroceryApp/Screens/RegistrationScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+               <Location
+                  uuid = "B4006906-C1E0-4D31-8164-2A325D2EA63E - 2b648b0fc92cdd14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for GroceryApp.RegistrationScreen.register() async -&gt; ()"
+                  moduleName = "GroceryApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Seagate%20Portable%20Drive/VporStudy/GroceryApp/GroceryApp/Screens/RegistrationScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+               <Location
+                  uuid = "B4006906-C1E0-4D31-8164-2A325D2EA63E - c31112774660a9e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for GroceryApp.RegistrationScreen.register() async -&gt; ()"
+                  moduleName = "GroceryApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Seagate%20Portable%20Drive/VporStudy/GroceryApp/GroceryApp/Screens/RegistrationScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+               <Location
+                  uuid = "B4006906-C1E0-4D31-8164-2A325D2EA63E - 279657ea4d8613e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for GroceryApp.RegistrationScreen.register() async -&gt; ()"
+                  moduleName = "GroceryApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Seagate%20Portable%20Drive/VporStudy/GroceryApp/GroceryApp/Screens/RegistrationScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

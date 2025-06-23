@@ -27,5 +27,17 @@ enum Constants {
         static func deleteGroceryCategory(withUserId userId: UUID, andGorceryId groceryId: UUID) -> URL {
             return URL(string: "\(baseURL)/users/\(userId)/grocery-categories/\(groceryId)")!
         }
+        
+        static func saveGroceryItem(withId groceryCategoryId: UUID, andUserId userId: UUID) -> URL {
+            return URL(string: "\(baseURL)/users/\(userId)/grocery-categories/\(groceryCategoryId)/grocery-items")!
+        }
+        
+        static func getGroceryItems(withId groceryCategoryId: UUID, andUserId userId: UUID) -> URL {
+            return URL(string: "\(baseURL)/users/\(userId)/grocery-categories/\(groceryCategoryId)/grocery-items")!
+        }
+        
+        static func deleteGroceryItems(withId groceryCategoryId: UUID, andUserId userId: UUID, andItemId itemId: UUID) -> URL {
+            return URL(string: "\(baseURL)/users/\(userId)/grocery-categories/\(groceryCategoryId)/grocery-items/\(itemId)")!
+        }
     }
 }
