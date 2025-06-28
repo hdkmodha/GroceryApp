@@ -14,7 +14,7 @@ struct GroceryAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView(model: GroceryModels())
+            AuthRouter.start()
         }
     }
 }
